@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Categorie;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreCategorieRequest;
+use App\Http\Requests\UpdateCategorieRequest;
 
 class CategorieController extends Controller
 {
@@ -26,5 +27,17 @@ class CategorieController extends Controller
     {
         Categorie::create($request->validated());
         return redirect()->route('categories.index')->with('success', 'Catégorie créée avec succès');
+    }
+    // Affiche le formulaire pour modifier une catégorie existante
+    public function edit(Categorie $categorie)
+    {
+        return view('categories.edit', compact('categorie'));
+    }
+
+    // Traite les données du formulaire et met à jour la catégorie
+    public function update(UpdateCategorieRequest $request, Categorie $categorie)
+    {
+        $categorie->update($request->validated());
+        return redirect()->route('categories.index')->with('success', 'Catégorie modifier avec succès');
     }
 }

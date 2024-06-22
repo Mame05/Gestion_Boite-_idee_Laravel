@@ -9,32 +9,25 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Liste des catégories</h1>
-        <a href="{{ route('categories.create') }}">Ajouter une nouvelle catégorie</a>
-
-        @if(session('success'))
-            <div class="alert alert-success mt-3">
-                {{ session('success') }}
+    <h1>Modifier la catégorie</h1>
+    @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
             </div>
-        @endif
+    @endif
 
-        <ul class="list-group mt-3">
-            @foreach($categories as $categorie)
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                {{ $categorie->libelle_categorie }}
-                <span>
-                    <a href="{{ route('categories.edit', $categorie) }}" class="btn btn-warning btn-sm">Modifier</a>
-                    <!--<form action="{*{ route('categories.destroy', $categorie) }}" method="POST" class="d-inline;">
-                    @*csrf
-                    @*method('DELETE')
-                    <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
-                    </form>-->
-                </span>
-            </li>
-            @endforeach
-        </ul>
-    </div>
+    <form action="{{ route('categories.update', $categorie) }}" method="POST">
+        @csrf
+        @method('PUT')
+        <div class="form-group">
+            <label for="libelle_categorie">Nom de la catégorie :</label>
+            <input type="text" class="form-control" id="libelle_categorie" name="libelle_categorie" value="{{ old('libelle_categorie', $categorie->libelle_categorie) }}">
+        <button type="submit" class="btn btn-primary">Mettre à jour</button>
+    </form>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 </body>

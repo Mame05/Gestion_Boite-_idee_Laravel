@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreCategorieRequest extends FormRequest
+class UpdateCategorieRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +22,7 @@ class StoreCategorieRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'libelle_categorie' => 'required|string|max:255',
+            'libelle_categorie' => 'required|string|max:255', 
         ];
     }
 }
