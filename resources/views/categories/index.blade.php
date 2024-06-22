@@ -25,11 +25,11 @@
                 {{ $categorie->libelle_categorie }}
                 <span>
                     <a href="{{ route('categories.edit', $categorie) }}" class="btn btn-warning btn-sm">Modifier</a>
-                    <!--<form action="{*{ route('categories.destroy', $categorie) }}" method="POST" class="d-inline;">
-                    @*csrf
-                    @*method('DELETE')
+                    <form action="{{ route('categories.destroy', $categorie) }}" method="POST" class="d-inline;">
+                    @csrf
+                    @method('DELETE')
                     <button type="submit" class="btn btn-danger btn-sm">Supprimer</button>
-                    </form>-->
+                    </form>
                 </span>
             </li>
             @endforeach

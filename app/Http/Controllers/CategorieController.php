@@ -40,4 +40,10 @@ class CategorieController extends Controller
         $categorie->update($request->validated());
         return redirect()->route('categories.index')->with('success', 'Catégorie modifier avec succès');
     }
+    // Supprime une catégorie
+    public function destroy(Categorie $categorie)
+    {
+        $categorie->delete();
+        return redirect()->route('categories.index')->with('success', 'Catégorie supprimée avec succès');
+    }
 }
