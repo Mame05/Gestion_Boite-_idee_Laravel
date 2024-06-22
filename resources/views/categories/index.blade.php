@@ -14,19 +14,19 @@
         <p>{{ session('success') }}</p>
     @endif
 
-    <!--<ul>
-        @*f*oreach($categories as $categorie)
+    <ul>
+        @foreach($categories as $categorie)
             <li>
-                {*{ $categorie->libelle_categorie }}
-                <a href="{*{ route('categories.edit', $*categorie) }}">Modifier</a>
-                <form action="{*{ route('categories.destroy', $-category) }}" method="POST" style="display:inline;">
-                    @*csrf
-                    @*method('DELETE')
+                {{ $categorie->libelle_categorie }}
+                <a href="{{ route('categories.edit', $categorie) }}">Modifier</a>
+                <form action="{{ route('categories.destroy', $categorie) }}" method="POST" style="display:inline;">
+                    @csrf
+                    @method('DELETE')
                     <button type="submit">Supprimer</button>
                 </form>
             </li>
-        @*endforeach
-    </ul>-->
+        @endforeach
+    </ul>
 
 </body>
 </html>
