@@ -6,7 +6,22 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Http\\Controllers\\CategorieController' => $baseDir . '/app/Http/Controllers/CategorieController.php',
+    'App\\Http\\Controllers\\CommentaireController' => $baseDir . '/app/Http/Controllers/CommentaireController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Controllers\\IdeeController' => $baseDir . '/app/Http/Controllers/IdeeController.php',
+    'App\\Http\\Controllers\\LoginController' => $baseDir . '/app/Http/Controllers/LoginController.php',
+    'App\\Http\\Controllers\\LogoutController' => $baseDir . '/app/Http/Controllers/LogoutController.php',
+    'App\\Http\\Controllers\\RegisterController' => $baseDir . '/app/Http/Controllers/RegisterController.php',
+    'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
+    'App\\Http\\Middleware\\AdminMiddleware' => $baseDir . '/app/Http/Middleware/AdminMiddleware.php',
+    'App\\Http\\Requests\\StoreCategorieRequest' => $baseDir . '/app/Http/Requests/StoreCategorieRequest.php',
+    'App\\Http\\Requests\\StoreIdeeRequest' => $baseDir . '/app/Http/Requests/StoreIdeeRequest.php',
+    'App\\Http\\Requests\\UpdateCategorieRequest' => $baseDir . '/app/Http/Requests/UpdateCategorieRequest.php',
+    'App\\Http\\Requests\\UpdateIdeeRequest' => $baseDir . '/app/Http/Requests/UpdateIdeeRequest.php',
+    'App\\Models\\Categorie' => $baseDir . '/app/Models/Categorie.php',
+    'App\\Models\\Commentaire' => $baseDir . '/app/Models/Commentaire.php',
+    'App\\Models\\Idee' => $baseDir . '/app/Models/Idee.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',

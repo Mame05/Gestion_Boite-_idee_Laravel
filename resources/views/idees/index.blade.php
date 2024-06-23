@@ -40,13 +40,8 @@
                         <td>{{ $idee->status }}</td>
                         <td>{{ $idee->date_creation}}</td>
                         <td>
-                            <!--<a href="{*{ route('idees.show', $idee->id) }}" class="btn btn-info">Voir</a>-->
+                            <a href="{{ route('idees.show', $idee->id) }}" class="btn btn-info">Voir</a>
                             <a href="{{ route('idees.edit', $idee->id) }}" class="btn btn-warning">Modifier</a>
-                           <form action="{{ route('idees.destroy', $idee->id) }}" method="POST" style="display:inline-block;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Supprimer</button>
-                            </form>
                         </td>
                     </tr>
                 @endforeach

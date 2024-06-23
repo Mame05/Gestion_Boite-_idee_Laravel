@@ -40,9 +40,15 @@ class IdeeController extends Controller
         return redirect()->route('idees.index')->with('success', 'Idée mise à jour avec succès');
     }
 
+    public function show(Idee $idee)
+    {
+        return view('idees.show', compact('idee'));
+    }
+
     public function destroy(Idee $idee)
     {
         $idee->delete();
         return redirect()->route('idees.index')->with('success', 'Idée supprimée avec succès');
     }
+
 }
