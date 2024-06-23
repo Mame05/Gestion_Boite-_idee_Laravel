@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Liste des idées</h1>
+
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        <a href="{{ route('idees.create') }}" class="btn btn-primary mb-3">Créer une nouvelle idée</a>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Libellé</th>
+                    <th>Description</th>
+                    <th>Catégorie</th>
+                    <th>Statut</th>
+                    <th>Date de création</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($idees as $idee)
+                    <tr>
+                        <td>{{ $idee->libelle_idee }}</td>
+                        <td>{{ $idee->description }}</td>
+                        <td>{{ $idee->categorie->libelle_categorie }}</td>
+                        <td>{{ $idee->status }}</td>
+                        <td>{{ $idee->date_creation}}</td>
+                        <td>
+                            <!--<a href="{*{ route('idees.show', $idee->id) }}" class="btn btn-info">Voir</a>
+                            <a href="{*{ route('idees.edit', $idee->id) }}" class="btn btn-warning">Modifier</a>
+                            <form action="{*{ route('idees.destroy', $idee->id) }}" method="POST" style="display:inline-block;">
+                                @*csrf
+                                @*method('DELETE')
+                                <button type="submit" class="btn btn-danger">Supprimer</button>
+                            </form>-->
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

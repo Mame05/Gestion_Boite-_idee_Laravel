@@ -41,7 +41,7 @@
             </div>
             <div class="form-group">
                 <label for="date_creation">Date de création</label>
-                <input type="date" class="form-control" id="date_creation" name="date_creation">
+                <input type="datetime-local" class="form-control" id="date_creation" name="date_creation">
             </div>
             <div class="form-group">
                 <label for="status">Statut</label>

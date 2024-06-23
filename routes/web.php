@@ -17,5 +17,5 @@ Route::delete('/categories/{categorie}', [CategorieController::class, 'destroy']
 
 // CRUD IDÉE
 Route::get('/idees/create', [IdeeController::class, 'create'])->name('idees.create');
-Route::post('/categories', [IdeeController::class, 'store'])->name('idees.store');
-
+Route::post('/idees', [IdeeController::class, 'store'])->name('idees.store');
+Route::get('/idees', [IdeeController::class, 'index'])->name('idees.index');

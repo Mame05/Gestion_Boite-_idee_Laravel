@@ -20,4 +20,10 @@ class IdeeController extends Controller
         Idee::create($request->validated());
         return redirect()->route('idees.index')->with('success', 'Idée créée avec succès');
     }
+
+    public function index()
+    {
+        $idees = Idee::all();
+        return view('idees.index', compact('idees'));
+    }
 }
