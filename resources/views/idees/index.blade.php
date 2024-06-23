@@ -42,11 +42,11 @@
                         <td>
                             <!--<a href="{*{ route('idees.show', $idee->id) }}" class="btn btn-info">Voir</a>-->
                             <a href="{{ route('idees.edit', $idee->id) }}" class="btn btn-warning">Modifier</a>
-                           <!-- <form action="{*{ route('idees.destroy', $idee->id) }}" method="POST" style="display:inline-block;">
-                                @*csrf
-                                @*method('DELETE')
+                           <form action="{{ route('idees.destroy', $idee->id) }}" method="POST" style="display:inline-block;">
+                                @csrf
+                                @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Supprimer</button>
-                            </form>-->
+                            </form>
                         </td>
                     </tr>
                 @endforeach

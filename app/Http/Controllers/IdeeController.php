@@ -39,4 +39,10 @@ class IdeeController extends Controller
         $idee->update($request->validated());
         return redirect()->route('idees.index')->with('success', 'Idée mise à jour avec succès');
     }
+
+    public function destroy(Idee $idee)
+    {
+        $idee->delete();
+        return redirect()->route('idees.index')->with('success', 'Idée supprimée avec succès');
+    }
 }
