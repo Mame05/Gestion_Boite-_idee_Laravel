@@ -19,3 +19,5 @@ Route::delete('/categories/{categorie}', [CategorieController::class, 'destroy']
 Route::get('/idees/create', [IdeeController::class, 'create'])->name('idees.create');
 Route::post('/idees', [IdeeController::class, 'store'])->name('idees.store');
 Route::get('/idees', [IdeeController::class, 'index'])->name('idees.index');
+Route::get('/idees/{idee}/edit', [IdeeController::class, 'edit'])->name('idees.edit');
+Route::put('/idees/{idee}', [IdeeController::class, 'update'])->name('idees.update');

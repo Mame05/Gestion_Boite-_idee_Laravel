@@ -9,9 +9,8 @@
     <title>Document</title>
 </head>
 <body>
-   
     <div class="container">
-        <h1>Créer une nouvelle idée</h1>
+        <h1>Modifier l'idée</h1>
 
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -23,36 +22,37 @@
             </div>
         @endif
 
-        <form action="{{ route('idees.store') }}" method="POST">
+        <form action="{{ route('idees.update', $idee->id) }}" method="POST">
             @csrf
+            @method('PUT')
             <div class="form-group">
                 <label for="libelle_idee">Nom de l'idée</label>
-                <input type="text" class="form-control" id="libelle_idee" name="libelle_idee">
+                <input type="text" class="form-control" id="libelle_idee" name="libelle_idee" value="{{ old('libelle_idee', $idee->libelle_idee) }}">
             </div>
             <div class="form-group">
                 <label for="description">Description de l'idée</label>
-                <textarea class="form-control" id="description" name="description"></textarea>
+                <textarea class="form-control" id="description" name="description">{{ old('description',$idee->description) }}</textarea>
             </div>
             <div class="form-group">
                 <label for="categorie_id">Catégorie</label>
                 <select class="form-control" id="categorie_id" name="categorie_id">
                     @foreach($categories as $categorie)
-                        <option value="{{ $categorie->id }}">{{ $categorie->libelle_categorie }}</option>
+                        <option value="{{ $categorie->id }}" {{ $categorie->id == $idee->categorie_id ? 'selected' : '' }}>{{ $categorie->libelle_categorie }}</option>
                     @endforeach
                 </select>
             </div>
             <div class="form-group">
-                <label for="date_creation">Date de création</label>
-                <input type="datetime-local" class="form-control" id="date_creation" name="date_creation">
-            </div>
-            <div class="form-group">
                 <label for="status">Statut</label>
                 <select class="form-control" id="status" name="status">
-                    <option value="Approuvee">Approuvée</option>
-                    <option value="Refusee">Refusée</option>
+                    <option value="Approuvee" {{ $idee->status == 'Approuvee' ? 'selected' : '' }}>Approuvée</option>
+                    <option value="Refusee" {{ $idee->status == 'Refusee' ? 'selected' : '' }}>Refusée</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary">Créer</button>
+            <div class="form-group">
+                <label for="date_creation">Date de création</label>
+                <input type="datetime-local" class="form-control" id="date_creation" name="date_creation" value="{{ old('date_creation',$idee->date_creation) }}">
+            </div>
+            <button type="submit" class="btn btn-primary">Mettre à jour</button>
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

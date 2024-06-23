@@ -6,6 +6,7 @@ use App\Models\Idee;
 use App\Models\Categorie;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreIdeeRequest;
+use App\Http\Requests\UpdateIdeeRequest;
 
 class IdeeController extends Controller
 {
@@ -25,5 +26,17 @@ class IdeeController extends Controller
     {
         $idees = Idee::all();
         return view('idees.index', compact('idees'));
+    }
+
+    public function edit(Idee $idee)
+    {
+        $categories = Categorie::all();
+        return view('idees.edit', compact('idee', 'categories'));
+    }
+
+    public function update(UpdateIdeeRequest $request, Idee $idee)
+    {
+        $idee->update($request->validated());
+        return redirect()->route('idees.index')->with('success', 'Idée mise à jour avec succès');
     }
 }
