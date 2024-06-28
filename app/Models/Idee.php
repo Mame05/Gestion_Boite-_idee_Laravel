@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Idee extends Model
 {
     use HasFactory;
-    protected $fillable = ['libelle_idee','description','status','date_creation','categorie_id'];
+    protected $fillable = ['prenom_auteur','nom_auteur','email','libelle_idee','description','status','created_at','categorie_id'];
 
     public function categorie()
     {

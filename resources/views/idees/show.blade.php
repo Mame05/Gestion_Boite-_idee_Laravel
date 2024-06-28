@@ -11,11 +11,27 @@
 <body>
     <div class="container">
         <h1>{{ $idee->libelle_idee }}</h1>
-
         <p><strong>Description:</strong> {{ $idee->description }}</p>
         <p><strong>Catégorie:</strong> {{ $idee->categorie->livelle_categorie }}</p>
         <p><strong>Statut:</strong> {{ $idee->status }}</p>
-        <p><strong>Date de création:</strong> {{ $idee->date_creation }}</p>
+        <p><strong>Date de création:</strong> {{ $idee->created_at }}</p>
+        <p><strong>De la part de:</strong>  {{ $idee->prenom_auteur }}  {{ $idee->prenom_auteur}}</p>
+        <p><strong>Son adresse email:</strong>  {{ $idee->email}}</p>
+        @if(session('status'))
+        <p>{{ session('status') }}</p>
+    @endif
+
+    <!-- Boutons pour approuver et rejeter l'idée -->
+    <form method="POST" action="{{ route('idees.approve', $idee->id) }}">
+        @csrf
+        <button type="submit">Approuver</button>
+    </form>
+
+    <form method="POST" action="{{ route('idees.reject', $idee->id) }}">
+        @csrf
+        <button type="submit">Rejeter</button>
+    </form>
+
         <a href="{{ route('idees.edit', $idee->id) }}" class="btn btn-warning">Modifier</a>
         <form action="{{ route('idees.destroy', $idee->id) }}" method="POST" style="display:inline-block;">
             @csrf

@@ -26,6 +26,18 @@
         <form action="{{ route('idees.store') }}" method="POST">
             @csrf
             <div class="form-group">
+                <label for="prenom_auteur">Votre prénom</label>
+                <input type="text" class="form-control" id="prenom_auteur" name="prenom_auteur">
+            </div>
+            <div class="form-group">
+                <label for="nom_auteur">Votre nom</label>
+                <input type="text" class="form-control" id="nom_auteur" name="nom_auteur">
+            </div>
+            <div class="form-group">
+                <label for="email">Votre adresse email</label>
+                <input type="text" class="form-control" id="email" name="email">
+            </div>
+            <div class="form-group">
                 <label for="libelle_idee">Nom de l'idée</label>
                 <input type="text" class="form-control" id="libelle_idee" name="libelle_idee">
             </div>
@@ -40,10 +52,6 @@
                         <option value="{{ $categorie->id }}">{{ $categorie->libelle_categorie }}</option>
                     @endforeach
                 </select>
-            </div>
-            <div class="form-group">
-                <label for="date_creation">Date de création</label>
-                <input type="datetime-local" class="form-control" id="date_creation" name="date_creation">
             </div>
             <div class="form-group">
                 <label for="status">Statut</label>

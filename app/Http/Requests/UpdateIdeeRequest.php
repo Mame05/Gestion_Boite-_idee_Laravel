@@ -22,9 +22,12 @@ class UpdateIdeeRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'prenom_auteur' => 'required|string|max:255',
+            'nom_auteur' => 'required|string|max:255',
+            'libelle_idee' => 'required|string|max:255',
+            'email' => 'required|string|max:255',
             'libelle_idee' => 'required|string|max:255',
             'description' => 'required|string',
-            'date_creation' => 'nullable|date',
             'status' => 'in:Approuvee,Refusee',
             'categorie_id' => 'required|exists:categories,id',
         ];

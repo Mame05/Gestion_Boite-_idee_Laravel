@@ -14,7 +14,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 //CRUD CATÉGORIE
-Route::middleware(['auth'])->group(function () {
+//Route::middleware(['auth'])->group(function () {
 Route::get('/categories', [CategorieController::class, 'index'])->name('categories.index');
 Route::get('/categories/create', [CategorieController::class, 'create'])->name('categories.create');
 Route::post('/categories', [CategorieController::class, 'store'])->name('categories.store');
@@ -25,7 +25,7 @@ Route::get('/idees/{idee}', [IdeeController::class, 'show'])->name('idees.show')
 Route::post('/idees/{idee}/approve', [IdeeController::class, 'approve'])->name('idees.approve');
 Route::post('/idees/{idee}/reject', [IdeeController::class, 'reject'])->name('idees.reject');
 
-});
+//});
 // CRUD IDÉE
 
 Route::get('/idees', [IdeeController::class, 'index'])->name('idees.index');

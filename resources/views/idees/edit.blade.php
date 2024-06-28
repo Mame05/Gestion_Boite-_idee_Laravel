@@ -26,10 +26,6 @@
             @csrf
             @method('PUT')
             <div class="form-group">
-                <label for="libelle_idee">Nom de l'idée</label>
-                <input type="text" class="form-control" id="libelle_idee" name="libelle_idee" value="{{ old('libelle_idee', $idee->libelle_idee) }}">
-            </div>
-            <div class="form-group">
                 <label for="description">Description de l'idée</label>
                 <textarea class="form-control" id="description" name="description">{{ old('description',$idee->description) }}</textarea>
             </div>
@@ -48,10 +44,10 @@
                     <option value="Refusee" {{ $idee->status == 'Refusee' ? 'selected' : '' }}>Refusée</option>
                 </select>
             </div>
-            <div class="form-group">
+           <!-- <div class="form-group">
                 <label for="date_creation">Date de création</label>
-                <input type="datetime-local" class="form-control" id="date_creation" name="date_creation" value="{{ old('date_creation',$idee->date_creation) }}">
-            </div>
+                <input type="datetime-local" class="form-control" id="date_creation" name="date_creation" value="{*{ old('date_creation',$idee->date_creation) }}">
+            </div>-->
             <button type="submit" class="btn btn-primary">Mettre à jour</button>
         </form>
     </div>

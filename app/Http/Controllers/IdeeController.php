@@ -51,4 +51,22 @@ class IdeeController extends Controller
         return redirect()->route('idees.index')->with('success', 'Idée supprimée avec succès');
     }
 
+    public function approve($id)
+    {
+        $idee = Idee::findOrFail($id);
+        $idee->status = 'Approuvee';
+        $idee->save();
+
+        return redirect()->route('idees.show', $idee->id)->with('status', 'Idée approuvée avec succès.');
+    }
+
+    public function reject($id)
+    {
+        $idee = Idee::findOrFail($id);
+        $idee->status = 'Refusee';
+        $idee->save();
+
+        return redirect()->route('idees.show', $idee->id)->with('status', 'Idée refusée avec succès.');
+    }
+
 }

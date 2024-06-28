@@ -38,7 +38,7 @@
                         <td>{{ $idee->description }}</td>
                         <td>{{ $idee->categorie->libelle_categorie }}</td>
                         <td>{{ $idee->status }}</td>
-                        <td>{{ $idee->date_creation}}</td>
+                        <td>{{ $idee->created_at}}</td>
                         <td>
                             <a href="{{ route('idees.show', $idee->id) }}" class="btn btn-info">Voir</a>
                         </td>
