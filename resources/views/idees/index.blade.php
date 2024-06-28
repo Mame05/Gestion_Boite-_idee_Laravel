@@ -18,7 +18,7 @@
             </div>
         @endif
 
-        <a href="{{ route('idees.create') }}" class="btn btn-primary mb-3">Créer une nouvelle idée</a>
+        <a href="{{ route('idee.create') }}" class="btn btn-primary mb-3">Créer une nouvelle idée</a>
 
         <table class="table table-bordered">
             <thead>
@@ -41,7 +41,6 @@
                         <td>{{ $idee->date_creation}}</td>
                         <td>
                             <a href="{{ route('idees.show', $idee->id) }}" class="btn btn-info">Voir</a>
-                            <a href="{{ route('idees.edit', $idee->id) }}" class="btn btn-warning">Modifier</a>
                         </td>
                     </tr>
                 @endforeach
