@@ -40,7 +40,8 @@
                         <td>{{ $idee->status }}</td>
                         <td>{{ $idee->created_at}}</td>
                         <td>
-                            <a href="{{ route('idees.show', $idee->id) }}" class="btn btn-info">Voir</a>
+                            <a href="{{ route('idee.show', $idee->id) }}" class="btn btn-info">Voir</a>
+                            <a href="{{ route('commentaires.index', $idee->id) }}">Voir les détails et les commentaires</a>
                         </td>
                     </tr>
                 @endforeach

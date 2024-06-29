@@ -68,5 +68,6 @@ class IdeeController extends Controller
 
         return redirect()->route('idees.show', $idee->id)->with('status', 'Idée refusée avec succès.');
     }
+    
 
 }

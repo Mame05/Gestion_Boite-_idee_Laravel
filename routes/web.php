@@ -6,6 +6,7 @@ use App\Http\Controllers\IdeeController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\CommentaireController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Administrateur\AdministrateurLoginController;
@@ -21,7 +22,7 @@ Route::post('/categories', [CategorieController::class, 'store'])->name('categor
 Route::get('/categories/{categorie}/edit', [CategorieController::class, 'edit'])->name('categories.edit');
 Route::put('/categories/{categorie}', [CategorieController::class, 'update'])->name('categories.update');
 Route::delete('/categories/{categorie}', [CategorieController::class, 'destroy'])->name('categories.destroy');
-Route::get('/idees/{idee}', [IdeeController::class, 'show'])->name('idees.show');
+Route::get('/idee/{idee}', [IdeeController::class, 'show'])->name('idee.show');
 Route::post('/idees/{idee}/approve', [IdeeController::class, 'approve'])->name('idees.approve');
 Route::post('/idees/{idee}/reject', [IdeeController::class, 'reject'])->name('idees.reject');
 
@@ -33,7 +34,8 @@ Route::get('/idees/{idee}/edit', [IdeeController::class, 'edit'])->name('idees.e
 Route::put('/idees/{idee}', [IdeeController::class, 'update'])->name('idees.update');
 Route::delete('/idees/{idee}', [IdeeController::class, 'destroy'])->name('idees.destroy');
 
-
+Route::get('/idees/{idee}/commentaires', [CommentaireController::class, 'index'])->name('commentaires.index');
+Route::post('/idees/{idee}/commentaires', [CommentaireController::class, 'store'])->name('commentaires.store');
 
 
 /*Connection*/
