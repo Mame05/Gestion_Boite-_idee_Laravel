@@ -11,9 +11,9 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Administrateur\AdministrateurLoginController;
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 //CRUD CATÉGORIE
 //Route::middleware(['auth'])->group(function () {
 Route::get('/categories', [CategorieController::class, 'index'])->name('categories.index');
@@ -29,10 +29,11 @@ Route::post('/idees/{idee}/reject', [IdeeController::class, 'reject'])->name('id
 //});
 // CRUD IDÉE
 
-Route::get('/idees', [IdeeController::class, 'index'])->name('idees.index');
+Route::get('/', [IdeeController::class, 'index'])->name('idees.index');
 Route::get('/idees/{idee}/edit', [IdeeController::class, 'edit'])->name('idees.edit');
 Route::put('/idees/{idee}', [IdeeController::class, 'update'])->name('idees.update');
 Route::delete('/idees/{idee}', [IdeeController::class, 'destroy'])->name('idees.destroy');
+
 
 Route::get('/idees/{idee}/commentaires', [CommentaireController::class, 'index'])->name('commentaires.index');
 Route::post('/idees/{idee}/commentaires', [CommentaireController::class, 'store'])->name('commentaires.store');
